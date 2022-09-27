@@ -18,7 +18,8 @@ phases:
     build:
         commands:
             - rm -rf public
-            - hugo deploy
+            - aws s3 rm --recursive s3://experimentalhugosbucket
+            - aws s3 cp public s3://experimentalhugosbucket/ --recursive
     post_build:
         commands:
             - echo Build completed on `date`
