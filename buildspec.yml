@@ -17,7 +17,7 @@ phases:
             - rm -rf /tmp/*
     build:
         commands:
-            - rm -R public/* 
+            - rm -rf public
             - hugo
             - aws s3 rm s3://experimentalhugosbucket --recursive 
             - aws s3 cp public s3://experimentalhugosbucket/ --recursive
