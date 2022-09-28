@@ -18,8 +18,8 @@ phases:
     build:
         commands:
             - rm -rf public
-            - aws s3 rm --recursive "s3://experimentalhugosbucket"
-            - aws s3 cp public s3://experimentalhugosbucket/ --recursive
+            - hugo
+            - aws s3 sync public/ s3://experimentalhugosbucket/ --region us-west-1 --delete
     post_build:
         commands:
             - echo Build completed on `date`
